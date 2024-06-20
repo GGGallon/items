@@ -12,7 +12,10 @@
         <span class="gift-name">{{ item.name }}</span>
       </slot>
     </div>
-    <button class="cb-lottery__btn" @click="requestLottery"></button>
+    <div class="cb-lottery__btn" >
+      <button class="cb-lottery__btn_inner" @click="requestLottery"></button>
+      <button class="cb-lottery__btn_inner" @click="requestLottery"></button>
+    </div>
   </div>
 </template>
 
@@ -206,6 +209,9 @@ export default {
   }
 
   @include e('btn') {
+    @include flex-center();
+    flex-direction: column;
+    justify-content: space-around;
     width: 208px;
     height: 154px;
     left: 50%;
@@ -215,7 +221,13 @@ export default {
     outline: none;
     border: none;
     background-color: transparent;
-    @include bg('https://res.cdn.changbaimg.com/asset/yunying/twinkle-double-star/btn-lottery.03a86a0a.png');
+    
+    .cb-lottery__btn_inner {
+      border: none;
+      width: 208px;
+      height: 60px;
+      @include bg('https://res.cdn.changbaimg.com/asset/yunying/twinkle-double-star/btn-lottery.03a86a0a.png');
+    }
   }
 
   @at-root .gift-img {
