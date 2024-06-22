@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "vue": "^3.4.21"
+    "vue": "^3.4.21",
+    "vue3-danmaku": "^1.6.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

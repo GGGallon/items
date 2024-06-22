@@ -1,6 +1,9 @@
 <script setup>
-import hourseLight from './components/hourseLight.vue'
-import SudokuTurntableVue from './components/SudokuTurntable.vue'
+import { ref } from 'vue'
+import vueDanmaku from 'vue3-danmaku'
+
+
+const danmus = ref(['danmu1', 'danmu2', 'danmu3', '...'])
 
 const previewList = [
         {
@@ -89,11 +92,12 @@ const previewList = [
 </script>
 
 <template>
-  <SudokuTurntableVue
+  <!-- <SudokuTurntableVue
   :min-loop="6"
   :request="request"
   :reward-preview-list="previewList"
-  @success="handleResults" />
+  @success="handleResults" /> -->
+  <vue-danmaku v-model:danmus="danmus" loop style="height:100px; width:300px;"></vue-danmaku>
 </template>
 
 <style scoped></style>
