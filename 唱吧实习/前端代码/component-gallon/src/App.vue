@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { ref } from 'vue'
 import vueDanmaku from 'vue3-danmaku'
 
@@ -89,7 +89,7 @@ const previewList = [
   function handleResults(res) {
       alert('恭喜你，抽中了:' + JSON.stringify(res))
   }
-</script>
+</script> -->
 
 <template>
   <!-- <SudokuTurntableVue
@@ -97,7 +97,42 @@ const previewList = [
   :request="request"
   :reward-preview-list="previewList"
   @success="handleResults" /> -->
-  <vue-danmaku v-model:danmus="danmus" loop style="height:100px; width:300px;"></vue-danmaku>
+  <!-- <vue-danmaku v-model:danmus="danmus" loop style="height:100px; width:300px;"></vue-danmaku> -->
+  <div class="div-container">
+    <div class="div-list"></div>
+    <div class="div-list yellow"></div>
+    <div class="div-list red"></div>
+    <div class="div-list blue"></div>
+  </div>
 </template>
 
-<style scoped></style>
+<script setup>
+import { onMounted } from 'vue'
+onMounted(() => {
+  const list = document.getElementsByClassName('div-list')
+  console.log(Array.from(list))
+  Array.from(list).forEach((item) => {
+    item.classList.remove('yellow')
+  })
+})
+</script>
+
+<style scoped>
+.div-list {
+  width: 200px;
+  height: 100px;
+  background-color: aquamarine;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+</style>
