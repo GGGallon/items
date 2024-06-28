@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      async function asy1(){
+        console.log(1);
+        await asy2();
+        console.log(2);
+      }
+
+      async function asy2(){
+        await setTimeout(()=>{
+          Promise.resolve().then(()=>{
+            console.log(3);
+          })
+          console.log(4)
+        }, 0)
+      }
+
+      async function asy3(){
+        Promise.resolve().then(()=>{
+          console.log(6);
+        })
+      }
+
+      asy1()
+      console.log(7);
+      asy3();
+      // 微任务 2 asy2() 
+      // 宏任务  
+
+      // 1 7 2 6 4 3
+
+      // 1
+    </script>
+  </body>
+</html>
